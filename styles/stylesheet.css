@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+main {
+  height: 100vh;
+  padding: 5%;
+  background-color: #393E46;
+  color: #EEEEEE;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+
+main > * { margin-top: 5%; }
+
+button#changeColor {
+  background-color: #00ADB5;
+  color: #393E46;
+  width: 25%;
+  height: 05%;
+}
+
+div#compareColors {
+  background-color: #00ADB5;
+  color: #393E46;
+  display: flex;
+}
+
+div#chosenColor,
+div#complementaryColor {
+  width: 50%;
+  border: 2px #EEEEEE solid;
+  margin: 5%;
+}
