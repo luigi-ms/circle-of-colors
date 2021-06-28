@@ -8,7 +8,7 @@ main {
   height: 100vh;
   padding: 5%;
   background-color: #393E46;
-  color: #EEEEEE;
+  color: #AAD8D3;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,22 +17,29 @@ main {
 
 main > * { margin-top: 5%; }
 
+input#colorPicker {
+  width: 12%;
+  padding: 2%;
+  background-color: #AAD8D3;
+}
+/*
 button#changeColor {
   background-color: #00ADB5;
   color: #393E46;
   width: 25%;
-  height: 05%;
+  height: 5%;
 }
-
+*/
 div#compareColors {
-  background-color: #00ADB5;
-  color: #393E46;
+  background-color: #AAD8D3;
   display: flex;
 }
 
 div#chosenColor,
 div#complementaryColor {
+  background-color: #A83234;
+  color: #A83234;
   width: 50%;
-  border: 2px #EEEEEE solid;
+  border: 3px #393E46 solid;
   margin: 5%;
 }
