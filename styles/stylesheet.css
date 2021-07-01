@@ -17,29 +17,33 @@ main {
 
 main > * { margin-top: 5%; }
 
+label.colorCode {
+  color: #111111;
+  font-size: 40%;
+  align-self: start;
+}
+
 input#colorPicker {
   width: 12%;
   padding: 2%;
   background-color: #AAD8D3;
 }
-/*
-button#changeColor {
-  background-color: #00ADB5;
-  color: #393E46;
-  width: 25%;
-  height: 5%;
-}
-*/
+
 div#compareColors {
+  height: 10vh;
   background-color: #AAD8D3;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
 }
 
 div#chosenColor,
 div#complementaryColor {
-  background-color: #A83234;
-  color: #A83234;
-  width: 50%;
+  background-color: #464139;
+  color: #464139;
+  width: 60%;
   border: 3px #393E46 solid;
   margin: 5%;
 }

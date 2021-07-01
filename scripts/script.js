@@ -1,51 +1,55 @@
 let pickedColor = document.querySelector("#colorPicker");
-let colorOne = document.querySelector("#chosenColor");
-let colorTwo = document.querySelector("#complementaryColor");
+let colorOne = document.querySelector("#chosenColor"),
+    colorTwo = document.querySelector("#complementaryColor");
+let colorOneCode = document.querySelector("#colorOneCode"),
+    colorTwoCode = document.querySelector("#colorTwoCode");
 
 function changeColor(event){
-  hexToRGB(event.target.value);
-  colorOne.style.color = event.target.value;
-  colorOne.style.backgroundColor = event.target.value;
-  colorTwo.style.color = calculateComplementary(event.target.value);
-  colorTwo.style.backgroundColor = calculateComplementary(event.target.value);
+  let hexColor = event.target.value,
+      hslColor = calculateComplementary(hexColor);
+  
+  colorOne.style.color = hexColor;
+  colorOne.style.backgroundColor = hexColor;
+  colorOneCode.innerText = "HSL"+changeColorCode(hexColor);
+
+  colorTwo.style.color = "hsl("+hslColor+")";
+  colorTwo.style.backgroundColor = "hsl("+hslColor+")";
+  colorTwoCode.innerText = "HSL("+hslColor+")";
 }
 
 function calculateComplementary(color){
-  let colorArray = [], colorHSL = "";
+  let colorArray = [],
+      colorHSL = "";
   
-  colorArray = hexToRGB(color);
+  colorArray = hexToHSL(color);
   
   let hue = colorArray.shift();
   if(hue <= 180){
     hue += 180;
   }else{
-    hue = (hue+180)-360;
+    hue -= 180;
   }
   colorArray.unshift(hue);
   
   colorHSL = colorArray[0]+', '+colorArray[1]+'%, '+colorArray[2]+'%';
   
-  return "hsl("+colorHSL+")";
+  return colorHSL;
 }
 
-function hexToRGB(hexColor){
-  let red = hexColor.substring(1, 3);
-  let green = hexColor.substring(3, 5);
-  let blue = hexColor.substring(5, 7);
-  
-  red = parseInt(red, 16);
-  green = parseInt(green, 16);
-  blue = parseInt(blue, 16);
-  
-  return rgbToHSL(red, green, blue);
+function changeColorCode(color){
+  let hslArray = hexToHSL(color);
+  return "("+hslArray[0]+', '+hslArray[1]+'%, '+hslArray[2]+"%)";
 }
 
-function rgbToHSL(r, g, b){
+function hexToHSL(hexColor){
   let hue = 0, sat = 0, light = 0;
+  let r = hexColor.substring(1, 3),
+      g = hexColor.substring(3, 5),
+      b = hexColor.substring(5, 7);
   
-  r /= 255;
-  g /= 255;
-  b /= 255;
+  r = parseInt(r, 16) / 255;
+  g = parseInt(g, 16) / 255;
+  b = parseInt(b, 16) / 255;
   
   let cmin = Math.min(r, g, b),
       cmax = Math.max(r, g, b),

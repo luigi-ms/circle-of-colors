@@ -14,13 +14,18 @@
       <p>Selecione uma cor abaixo para descobrir qual é sua complementar.</p>
       
       <input type="color" 
-        value="#a83234"
+        value="#464139"
         id="colorPicker">
-      <!-- <button id="changeColor">Done</button> -->
       
       <div id="compareColors">
         <div id="chosenColor">Color One</div>
         <div id="complementaryColor">Color Two</div>
+        <label for="chosenColor"
+          id="colorOneCode"
+          class="colorCode">HSL(217, 10%, 20%)</label>
+        <label for="complementaryColor"
+          id="colorTwoCode"
+          class="colorCode">HSL(217, 10%, 20%)</label>
       </div>
     </main>
     <script src="./scripts/script.js"></script>
