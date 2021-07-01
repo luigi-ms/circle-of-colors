@@ -27,10 +27,12 @@ input#colorPicker {
   width: 12%;
   padding: 2%;
   background-color: #AAD8D3;
+  border-radius: 20%;
 }
 
 div#compareColors {
   height: 10vh;
+  width: 50vw;
   background-color: #AAD8D3;
   display: grid;
   grid-template-columns: 1fr 1fr;
